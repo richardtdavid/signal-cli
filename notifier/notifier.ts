@@ -21,7 +21,7 @@ app.post("/notify", (req, res) => {
 
 app.listen(port, () => console.log(`Server running on port: ${port}`));
 
-function notify({ title, msg }: Notification, cb: any) {
+function notify({ title, msg }: Notification, cb: CallBack) {
   console.log({ title, msg });
 
   notifier.notify(
@@ -36,7 +36,6 @@ function notify({ title, msg }: Notification, cb: any) {
       timeout: 15,
     },
     (err, response, metadata) => {
-      console.log(response, err);
       cb(<NotificationMetadata>metadata);
     }
   );
