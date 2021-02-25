@@ -15,6 +15,7 @@ app.get("/health", (req, res) =>
     msg: "Signal Notifier Server Healthy",
   })
 );
+
 app.post("/notify", (req, res) => {
   notify(req.body, (reply: NotificationMetadata) => res.send(reply));
 });
